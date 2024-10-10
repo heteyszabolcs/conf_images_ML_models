@@ -10,6 +10,8 @@ module _random_forest.py_:
 
 Random Forest classification model to find those jpg images that contain at least one stem cell colony. 
 
+For testing there are unstacked jpg files in folder _train/jpg_. The module _random_forest.py_ will run a training on these jpg files and eventually makes predictions on _test/jpg_.
+
 
 ## Data
 
