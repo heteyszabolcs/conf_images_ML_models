@@ -2,11 +2,11 @@
 
 ## Usage
 
-module unstack.py: 
+module _unstack.py_: 
 
 Convert tif files coming from confocal microscopes containing 4 different dimensions (channels) into jpg image files containing one single stack as an optional channel.
 
-module random_forest.py
+module _random_forest.py_:
 
 Random Forest classification model to find those jpg images that contain at least one stem cell colony. 
 
