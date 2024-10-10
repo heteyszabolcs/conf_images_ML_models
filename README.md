@@ -11,11 +11,11 @@ module _random_forest.py_:
 Random Forest classification model to find those jpg images that contain at least one stem cell colony. 
 
 
-# Data
+## Data
 
 Initial data format: tif files deriving from confocal microscopes
 
-# To do:
+## To do:
 
 Making one main.py file that drives the whole process.
 
