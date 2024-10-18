@@ -3,7 +3,7 @@
 # Random Forest
 ## Usage
 
-Run main.py function as a Python script (e.g. "python main.py" from Anaconda Prompt). The main.py function has the arguments below: <br>
+Run _main.py_ function as a Python script (e.g. "python main.py" from Anaconda Prompt). The main.py function has the arguments below: <br>
 
 ```
 -h, --help            show this help message and exit <br>
@@ -23,24 +23,25 @@ Run main.py function as a Python script (e.g. "python main.py" from Anaconda Pro
                         Arbitrary name of the Random forest model <br>
 ```
 
-# Pipeline: 
-1.) The pipeline will concert the confocal images in tif format to jpg format. <br>
+### Pipeline: 
+1.) The pipeline starts with converting the confocal images in tif format to jpg format. <br>
 <br>
 Notes: <br>
-If there aren't now new tif images then it will use the available training set. <br>
+If there aren't new tif images for training then the model will use the available training set. <br>
 If there are new tif images for training place them into <br> 
-  _train/tif/A:_ if it is a colony image
-  _train/tif/B:_ if there isn't colony in the field
-
+  _train/tif/A:_ if there isn't colony in the field 
+  _train/tif/B:_ if it is an image with colony/colonies.
+<br>
 2.) Train Random forest on the training set (=converted jpg images) <br>
 3.) Evaluate the training <br>
 <br>
 Notes: <br>
 There will be generated some performance plots. These can be found in the _plot_ folder. <br>
-4.) Make predictions on new images <br>
+4.) Make predictions on new images using the trained and tuned Random forest model <br>
+<br>
 Notes: <br>
 The new images to be tested must place into the _test/tif_ folder before the run. <br> 
-
+<br>
 5.) Select the images with potential colony/colonies and transport them in the "final" folder. <br>
 
 
