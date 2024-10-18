@@ -5,6 +5,7 @@
 
 Run main.py function as a Python script (e.g. "python main.py" from Anaconda Prompt). The main.py function has the arguments below: <br>
 
+```
 -h, --help            show this help message and exit <br>
   --train_tif_dir TRAIN_TIF_DIR <br>
                         Directory containing TIF files of the training set <br>
@@ -20,8 +21,9 @@ Run main.py function as a Python script (e.g. "python main.py" from Anaconda Pro
                         Classification threshold <br>
   --model_name MODEL_NAME <br>
                         Arbitrary name of the Random forest model <br>
+```
 
-#Pipeline: 
+# Pipeline: 
 1.) The pipeline will concert the confocal images in tif format to jpg format. <br>
 <br>
 Notes: <br>
