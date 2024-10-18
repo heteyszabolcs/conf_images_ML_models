@@ -1,29 +1,49 @@
 # Machine Learning models to classify confocal images based on stem cell colony distribution 
 
+# Random Forest
 ## Usage
 
-Example on the Random forest model: 
+Run main.py function as a Python script (e.g. "python main.py" from Anaconda Prompt). The main.py function has the arguments below: <br>
 
-module _unstack.py_: 
+-h, --help            show this help message and exit <br>
+  --train_tif_dir TRAIN_TIF_DIR <br>
+                        Directory containing TIF files of the training set <br>
+  --train_jpg_dir TRAIN_JPG_DIR <br>
+                        Destination folder for JPEG files of the training set <br>
+  --test_tif_dir TEST_TIF_DIR <br>
+                        The folder with the tif images for the predictions <br>
+  --test_jpg_dir TEST_JPG_DIR <br>
+                        The destination folder for JPEG files to be modelled <br>
+  --base_dir [BASE_DIR] <br>
+                        Directory of the training set <br>
+  --threshold [THRESHOLD] <br>
+                        Classification threshold <br>
+  --model_name MODEL_NAME <br>
+                        Arbitrary name of the Random forest model <br>
 
-Convert tif files coming from confocal microscopes containing 4 different dimensions (channels) into jpg image files containing one single stack as an optional channel.
+#Pipeline: 
+1.) The pipeline will concert the confocal images in tif format to jpg format. <br>
+<br>
+Notes: <br>
+If there aren't now new tif images then it will use the available training set. <br>
+If there are new tif images for training place them into <br> 
+  _train/tif/A:_ if it is a colony image
+  _train/tif/B:_ if there isn't colony in the field
 
-module _random_forest.py_:
+2.) Train Random forest on the training set (=converted jpg images) <br>
+3.) Evaluate the training <br>
+<br>
+Notes: <br>
+There will be generated some performance plots. These can be found in the _plot_ folder. <br>
+4.) Make predictions on new images <br>
+Notes: <br>
+The new images to be tested must place into the _test/tif_ folder before the run. <br> 
 
-Random Forest classification model to find those jpg images that contain at least one stem cell colony. 
-
-For testing there are unstacked jpg files in folder _train/jpg_. The module _random_forest.py_ will run a training on these jpg files and eventually makes predictions on _test/jpg_.
+5.) Select the images with potential colony/colonies and transport them in the "final" folder. <br>
 
 
-## Data
+## Requirements
 
-Initial data format: tif files deriving from confocal microscopes
 
-## To do:
 
-- [ ] Making one main.py file that drives the whole process.
-
-_"In programming, a “driver file” contains the “driver function,” commonly known as main. This function serves as the entry point for your program. In Python, a typical driver file might be named main.py, and within it, you'll define a main() function. The concept of driver files and functions is critical for structuring your code, especially in larger applications. Here, we will discuss the rules and exceptions specific to driver files and functions in Python."_
-
-- [ ] Adding more supervised classification models
 
