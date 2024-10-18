@@ -1,5 +1,6 @@
 import os
 import argparse
+from pathlib import Path
 import pandas as pd
 from src.image_conversion import convert_tiff_channel_to_jpg, process_folder_tiffs
 from src.data_preparation import prepare_data
@@ -7,23 +8,29 @@ from src.image_processing import process_image
 from src.model_training import train_random_forest, predict_random_forest
 import shutil
 
-train_jpg_folder = "data/train/jpg/A"
-train_tif_folder = "data/train/tif/A"
-
-# train folder
-base_folder = "data/train/jpg/"
-# test folder with new jpges
+# images
+#train_jpg_folder = "data/train/jpg/A"
+#train_tif_folder = "data/train/tif/A"
 #test_jpg_folder = "data/test/jpg/"
 #test_tif_folder = "data/test/tif/"
+# folder with the training sets
+#base_folder = "data/train/jpg/"
+# name of the model
 #model_name = "best_rf_model"
 
 def run_pipeline(train_tif_folder, train_jpg_folder, test_tif_folder, test_jpg_folder, model_name,
                  base_folder = "data/train/jpg/", threshold=0.3):
     # Step 1: Convert TIFF to JPG
-    print("Training set: Converting TIFF files to JPG...")
-    process_folder_tiffs(train_tif_folder, train_jpg_folder)
-    print("Test set: Converting TIFF files to JPG...")
-    process_folder_tiffs(test_tif_folder, test_jpg_folder)
+    if len(list(Path(train_tif_folder).glob('*.tif'))) != 0:
+        print("Training set: Converting TIFF files to JPG...")
+        process_folder_tiffs(train_tif_folder, train_jpg_folder)
+    else:
+        print("There are no tif files to be converted in the train folder.")
+    if len(list(Path(test_tif_folder).glob('*.tif'))) != 0:
+        print("Test set: Converting TIFF files to JPG...")
+        process_folder_tiffs(test_tif_folder, test_jpg_folder)
+    else:
+        print("There are no tif files to be converted in the test folder.")
 
     # Step 2: Prepare data
     print("Preparing data...")
