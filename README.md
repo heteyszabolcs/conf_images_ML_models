@@ -29,8 +29,8 @@ Run _main.py_ function as a Python script (e.g. "python main.py" from Anaconda P
 Notes: <br>
 If there aren't new tif images for training then the model will use the available training set. <br>
 If there are new tif images for training place them into <br> 
-  _train/tif/A:_ if there isn't colony in the field 
-  _train/tif/B:_ if it is an image with colony/colonies.
+  _train/tif/A:_ if there isn't colony in the field <br>
+  _train/tif/B:_ if it is an image with colony/colonies. <br>
 <br>
 2.) Train Random forest on the training set (=converted jpg images) <br>
 3.) Evaluate the training <br>
@@ -47,6 +47,7 @@ The new images to be tested must place into the _test/tif_ folder before the run
 
 ## Requirements
 
+See _requirements.txt_
 
 
 
